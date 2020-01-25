@@ -20,6 +20,18 @@ The breach data comes from three different sources:
 
 The original work on this effort was guided by Wikipedia. It became clear that this was not an exhaustive list, even of widely known breaches. As a result for more recent iterations more work was put into leveraging additional sources. These sources were combined, enriched, and corrected where needed to produce `dataset.csv`. For our research we identified breaches of publicly traded companies (NASDAQ or NYSE although the data is enriched with other exchanges as well) and determined if the breach affected over 100 customer records. Only records matching this description were included in the final 153 samples. We have isolated these samples as `dataset-samples.csv`.
 
+## Breach Type
+The VCDB data comes pre-labeled with types. These types were considered too specific for our use cases. Existing VCDB data that was not in scope maintains its existing labeling. In scope data was updated to the standard used by Privacy Right Clearinghouse. That standard is as follows:
+
+* Unintended disclosure (DISC) - Sensitive information posted publicly on a website, mishandled or sent to the wrong party via email, fax or mail.
+* Hacking or malware (HACK) - Electronic entry by an outside party, malware and spyware.
+* Payment Card Fraud (CARD) - Fraud involving debit and credit cards that is not accomplished via hacking. For example, skimming devices at point-of-service terminals.
+* Insider (INSD) - Someone with legitimate access intentionally breaches information - such as an employee or contractor.
+* Physical loss (PHYS) - Lost, discarded or stolen non-electronic records, such as paper documents
+* Portable device (PORT) - Lost, discarded or stolen laptop, PDA, smartphone, portable memory device, CD, hard drive, data tape, etc
+* Stationary device (STAT) - Lost, discarded or stolen stationary electronic device such as a computer or server not designed for mobility.
+* Unknown or other (UNKN)
+
 ## Stock information
 In this version of the release stock information comes from Financial Modeling Prep (https://financialmodelingprep.com/). Financial Modeling Prep provides a free API. Information on our usage of the API can be found in `tools/fetch_stock_info`. This script will read from our dataset sheet and downloaded all NYSE and NASDAQ stocks with the symbols listed. The data will be available in the created `data` subfolder and will be broken down by stock symbol on a day by day cadence from 1998-2020 (if available).
 
