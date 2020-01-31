@@ -38,9 +38,10 @@ def process_file(csv_headers, csv_reader):
     """
     symbol_index = csv_headers.index("Symbol")
     exchange_index = csv_headers.index("Market")
-    in_scope_index = csv_headers.index("In Scope")
-    #still_find = csv_headers.index("Remaining")
+    in_scope_index = csv_headers.index("In_Scope")
+
     for row in csv_reader:
+        #row = [None, "TRUE", None, None, None, None, None, None, "NASDAQ", "OPK"]
         # For this research the API can only return us info on the following two exchanges
         if(row[exchange_index] not in ["NASDAQ", "NYSE"]):
             continue
@@ -66,7 +67,6 @@ def process_file(csv_headers, csv_reader):
             print(f"Couldn't find {symbol}")
             continue
         write_day_data(day_data, save_fname)
-
 
 def main():
     """

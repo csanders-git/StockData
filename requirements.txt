@@ -1,3 +1,5 @@
 jupyter
 nbconvert
 pandoc
+sklearn
+seaborn
